@@ -23,10 +23,17 @@ public class ChessMatch {
 		}
 		return mat;
 	}
+	
+	public boolean[][] possibleMoves(ChessPosition sourcePosition){
+		Position position = sourcePosition.toposition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 	public ChessPiece performChessMovie(ChessPosition sourcePosition,ChessPosition targetPosition ) {
 		Position source = sourcePosition.toposition();
 		Position target = targetPosition.toposition();
-		vailidateSourcePosition(source);
+		validateSourcePosition(source);
 		validateTargetPosition(source,target);
 		Piece capturedPiece =makeMove(source,target);
 		return (ChessPiece)capturedPiece;
@@ -40,7 +47,7 @@ public class ChessMatch {
 		return capturedPiece;
 	}
 	
-	public void vailidateSourcePosition(Position position) {
+	public void validateSourcePosition(Position position) {
 		if(!board.thereIsAPiece(position)) {
 			throw new ChessException("There is no piece on source position");
 		}
