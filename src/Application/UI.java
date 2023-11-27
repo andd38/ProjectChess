@@ -60,7 +60,7 @@ import chess.Color;
 			System.out.println("Waiting player : "+ chessMatch.getCurrentPlayer());
 			
 			if(chessMatch.getCheck()) {
-				System.out.println("Check");
+				System.out.println("Check!");
 			}
 			
 		} else {
