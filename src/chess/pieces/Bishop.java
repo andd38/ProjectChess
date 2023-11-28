@@ -32,7 +32,7 @@ public class Bishop extends ChessPiece {
 		}
 		
 		//ne
-		p.setValues(position.getRow()-1, position.getColumn()-1);
+		p.setValues(position.getRow()-1, position.getColumn()+1);
 		while(getBoard().positionExists(p)&& !getBoard().thereIsAPiece(p)) {
 			mat[p.getRow()][p.getColumn()]= true;
 			p.setValues(p.getRow()-1, p.getColumn()+1);
